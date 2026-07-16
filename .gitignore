@@ -4,6 +4,9 @@
 # Ignore VS Code workspace settings
 .vscode/
 
+# Ignore c_Test directory (native C tests and binaries)
+c_Test/
+
 # Ignore output/build directories
 */output/
 
