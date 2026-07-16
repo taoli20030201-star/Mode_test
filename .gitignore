@@ -1,0 +1,13 @@
+# Ignore compiled executables
+*.exe
+
+# Ignore VS Code workspace settings
+.vscode/
+
+# Ignore output/build directories
+*/output/
+
+# Common OS/IDE files
+*.log
+*.tmp
+.DS_Store
