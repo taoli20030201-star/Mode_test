@@ -1,0 +1,92 @@
+阶段四 · 汇报材料生成日志
+========================================
+日期：2026-10-18
+执行目录：D:/ProjectFiles/VscodeProject/audit_ml_project
+
+一、输入
+----------------------------------------
+data/audit_raw.csv
+outputs/audit_clean.csv
+outputs/clean_feature_columns.csv
+outputs/field_dictionary.csv
+outputs/benford_digit_table.csv
+outputs/benford_by_label.csv
+outputs/benford_mad_by_label.csv
+outputs/isolation_forest_scores.csv
+outputs/topk_metrics.csv
+outputs/model_benford_crosstab.csv
+outputs/model_benford_cell_stats.csv
+outputs/top140_type_composition.csv
+outputs/case_studies.csv
+
+二、输出
+----------------------------------------
+outputs/report/figures/fig1_data_profile.png
+outputs/report/figures/fig2_cleaning.png
+outputs/report/figures/fig3_amount_transform.png
+outputs/report/figures/fig4_benford.png
+outputs/report/figures/fig5_topk.png
+outputs/report/figures/fig6_rule_model.png
+outputs/report/智慧审计_机器学习_10页汇报.pptx
+outputs/report/preview/slide01.png ... slide13.png（2026-10-19 起含 3 页附录）
+outputs/report/答辩问答.md
+outputs/report/演讲备注.md
+outputs/report/图集说明.md
+outputs/report/README.md
+outputs/report/build_report_figures.py
+outputs/report/build_report_ppt.py
+
+三、生成命令
+----------------------------------------
+python outputs/report/build_report_figures.py
+python outputs/report/build_report_ppt.py
+
+四、验证结果
+----------------------------------------
+PPTX：10 页主线 + 3 页备用附录（共 13 页），16:9（960 x 540 pt），6 张媒体图片，zip 完整性检查通过。
+预览：13 张 PNG，1600 x 900；逐页目视检查无文本溢出/重叠。
+图：6 张 PNG，约 2000 x 940，200 dpi，统一配色/字体。
+数字：与 notebooks/03_analysis.ipynb 输出一致（Top-140 129 命中/92.1%；
+      2x2 18/122/644/6216；Jaccard 0.023；ROC-AUC 0.8795；PR-AUC 0.6466）。
+进程：脚本结束后无残留 POWERPNT.EXE。
+
+五、口径说明
+----------------------------------------
+1. contamination=0.02 是审计容量假设（7,000 x 2% = 140 条），不是真实异常率。
+2. 标签只用于评估；Risk_Class 已删除；Abnormal_Type 保留作对照，不进入 111 个特征。
+3. 131 笔金额恰好 500,000 元，全部为 Unusual_Amount_Spike（金额突增）；
+   这是这批数据的重复金额模式，不代表“50 万一定异常”或“50 万是审批阈值”。
+4. 3 条案例均为模型-only（Benford 未标记、模型 Top-140），用于解释模型信号，
+   不作为定罪结论；完整字段见 outputs/case_studies.csv。
+5. 当前为课程实践数据；真实落地需按时间切分，并考虑有监督/图特征扩展。
+
+六、2026-10-18 修订
+----------------------------------------
+- 封面增加“目标 + 方法”两行：明确用 2% 容量从 7,000 笔交易中筛 140 条。
+- 第 3 页增加“审计现场痛点”一句：人力有限、异常稀少、规则只看单字段。
+- 第 10 页标题改为具体结论（Top-140 精确率 92.1%），并增加总结论条：
+  无监督筛查能缩小核查范围，但最终判断仍需人工凭证核查。
+
+七、2026-10-19 修订
+----------------------------------------
+- 封面改为“问题 → 目标 → 方法”三行：第一行先说明 7,000 笔交易人工看不完、
+  规则只看单字段、异常样本少且标签不可靠；第二行目标，第三行方法。
+- 第 2 页副标题改为“针对上面的问题，我把解决过程拆成四步……”，
+  明确承接封面问题，再展开获取/清洗/分析/汇报。
+- 其余 8 页顺序与数字不变；主线仍为 10 页 16:9；另加 3 页备用附录（见第八节）。
+- 答辩问答第六节“30 秒总结”也改为“问题 → 方法 → 结果”顺序。
+- 已重新生成 PPTX 和 13 张预览图；目视检查封面、第 2/3/10 页无溢出。
+
+八、2026-10-19 附录修订
+----------------------------------------
+- 主线保持 10 页；新增 3 页备用附录，页脚标注“附录 · 备用页（不计入 10 页主线）”：
+  A-1（slide11）115 维构成表：79 One-Hot + 28 数值 + 4 log1p+z + 2 标识 + 2 标签，
+      其中 111 个特征参与建模；同时列出被剔除的 13 列。
+  A-2（slide12）Top-K 全表：K=50/100/140/300/500/1000 的命中、精确率、召回率、lift，
+      并注明精确率/召回率/lift 的口径；K=140 行高亮。
+  A-3（slide13）案例 CN-TXN-0005220：模型排名 1/7,000；审批延迟 338.55 min、
+      发票匹配 0.4411、规则违反 4 条、关系异常 0.4931；金额 1.48 万低于历史均值 2.52 万。
+- 重新生成 PPTX 共 13 页（10 页主线 + 3 页附录）和 slide01–slide13 预览。
+- 附录数字来源：outputs/clean_feature_columns.csv、outputs/topk_metrics.csv、
+  outputs/case_studies.csv、outputs/isolation_forest_scores.csv。
+- 主 deck 数字未变：Top-140 129 命中/92.1%；2x2 18/122/644/6216；Jaccard 0.023。

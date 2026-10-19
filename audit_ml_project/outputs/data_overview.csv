@@ -1,0 +1,60 @@
+﻿字段分组,字段名,字段含义,dtype,缺失数,缺失率_%,唯一值数,示例值
+标识与时间,Transaction_ID,交易唯一编号,object,0,0.0,7000,CN-TXN-0000001
+标识与时间,Transaction_DateTime,交易发生时间（字符串，需转 datetime）,object,0,0.0,7000,2024-08-20 23:32:58
+标识与时间,Fiscal_Year,财年,int64,0,0.0,3,2024
+标识与时间,Fiscal_Quarter,财季（1-4）,int64,0,0.0,4,3
+标识与时间,Month,月份（1-12）,int64,0,0.0,12,8
+标识与时间,Hour,小时（0-23）,int64,0,0.0,24,23
+标识与时间,Weekend_Flag,是否周末（0/1）,int64,0,0.0,2,0
+标识与时间,Night_Transaction_Flag,是否夜间交易（0/1）,int64,0,0.0,2,1
+交易主体,Source_Node_ID,付款方网络节点编号,object,0,0.0,1490,CN-ACC-001308
+交易主体,Destination_Node_ID,收款方网络节点编号,object,0,0.0,1484,CN-ACC-000682
+交易主体,Source_Node_Index,付款方节点索引（0-1499 的数值编码）,int64,0,0.0,1490,1307
+交易主体,Destination_Node_Index,收款方节点索引,int64,0,0.0,1484,681
+交易主体,Source_Entity_ID,付款方实体编号,object,0,0.0,586,CN-ENT-00276
+交易主体,Destination_Entity_ID,收款方实体编号,object,0,0.0,586,CN-ENT-00272
+交易主体,Source_Entity_Name,付款方实体名称,object,0,0.0,132,Dahua Logistics Co Ltd
+交易主体,Destination_Entity_Name,收款方实体名称,object,0,0.0,132,Guanghua Manufacturing Group
+机构与地域,Source_Bank,付款方开户行,object,0,0.0,9,Postal Savings Bank of China
+机构与地域,Destination_Bank,收款方开户行,object,0,0.0,9,Shanghai Pudong Development Bank
+机构与地域,Source_Province,付款方所在省,object,0,0.0,12,Chongqing
+机构与地域,Destination_Province,收款方所在省,object,0,0.0,12,Chongqing
+机构与地域,Source_City,付款方所在市,object,0,0.0,25,Chongqing
+机构与地域,Destination_City,收款方所在市,object,0,0.0,25,Chongqing
+账户属性,Source_Account_Type,付款方账户类型,object,0,0.0,6,Subsidiary Account
+账户属性,Destination_Account_Type,收款方账户类型,object,0,0.0,6,Vendor Payable Account
+账户属性,Source_Account_Age_Days,付款方账户开立天数,int64,0,0.0,1266,2996
+账户属性,Destination_Account_Age_Days,收款方账户开立天数,int64,0,0.0,1265,980
+账户属性,Currency,币种（本数据全为 CNY）,object,0,0.0,1,CNY
+金额与阈值,Transaction_Amount_RMB,交易金额（人民币）,float64,0,0.0,6863,67514.44
+金额与阈值,Historical_Avg_Amount_RMB,该主体历史平均交易额,float64,0,0.0,6997,61445.67
+金额与阈值,Transaction_to_Avg_Ratio,交易额 / 历史均值（派生字段）,float64,0,0.0,5922,1.0988
+金额与阈值,Approval_Threshold_RMB,审批金额阈值,int64,0,0.0,4,50000
+金额与阈值,Amount_Threshold_Ratio,交易额 / 审批阈值（派生字段）,float64,0,0.0,4417,1.3503
+审批与支付,Payment_Channel,支付渠道,object,0,0.0,7,UnionPay Corporate Payment
+发票与税务,Invoice_ID,发票编号（高基数标识）,object,0,0.0,6695,CN-VAT-0000001
+发票与税务,Invoice_Type,发票类型,object,0,0.0,6,Service Invoice
+发票与税务,Invoice_Match_Score,发票匹配分数（0-1）,float64,0,0.0,2235,0.8773
+发票与税务,Tax_Validation_Flag,税务校验是否通过（0/1）,int64,0,0.0,2,1
+发票与税务,Duplicate_Invoice_Flag,是否重复发票（0/1）,int64,0,0.0,2,0
+关系网络,Edge_Type,交易边类型,object,0,0.0,8,Service Settlement
+关系网络,Same_Bank_Flag,是否同行转账（0/1）,int64,0,0.0,2,0
+关系网络,Province_Mismatch_Flag,是否跨省不匹配（0/1）,int64,0,0.0,2,0
+关系网络,Related_Party_Flag,是否关联方（0/1）,int64,0,0.0,2,0
+时间行为,Time_Since_Last_Transaction_Min,距上笔交易分钟数,float64,0,0.0,6587,64.54
+审批与支付,Approval_Level,审批级别,object,0,0.0,4,Audit Required
+审批与支付,Approval_Delay_Min,审批延迟（分钟）,float64,0,0.0,5559,36.13
+风险与规则,Vendor_Risk_Score,供应商风险分,float64,0,0.0,4116,0.2378
+关系网络,Source_Account_Degree,付款方账户度（连接数）,int64,0,0.0,315,178
+关系网络,Destination_Account_Degree,收款方账户度,int64,0,0.0,315,215
+关系网络,Source_PageRank,付款方 PageRank,float64,0,0.0,6408,0.06176
+关系网络,Destination_PageRank,收款方 PageRank,float64,0,0.0,6449,0.05738
+关系网络,Common_Counterparty_Count,共同对手方数量,int64,0,0.0,68,2
+关系网络,Edge_Transaction_Count_30D,近 30 天该关系交易次数,int64,0,0.0,88,5
+关系网络,Relation_Strength_Score,关系强度分数,float64,0,0.0,4267,0.1124
+时间行为,Temporal_Burst_Score,时间聚集度分数,float64,0,0.0,4116,0.7284
+风险与规则,Audit_Rule_Violation_Count,审计规则违反次数,int64,0,0.0,6,0
+风险与规则,Relational_Anomaly_Score,关系异常分,float64,0,0.0,2564,0.1923
+标签,Abnormal_Type,异常类型（9 类，含 Normal；由标签派生）,object,0,0.0,9,Normal
+标签,Risk_Class,风险等级 0/1/2（由标签派生）,int64,0,0.0,3,0
+标签,Abnormal_Label,是否异常 0/1（目标变量）,int64,0,0.0,2,0

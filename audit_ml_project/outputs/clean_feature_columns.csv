@@ -1,0 +1,112 @@
+﻿特征名,特征类型,变换方式,来源字段
+Fiscal_Year,numeric,保持原值,Fiscal_Year
+Fiscal_Quarter,numeric,保持原值,Fiscal_Quarter
+Month,numeric,保持原值,Month
+Hour,numeric,保持原值,Hour
+Weekend_Flag,numeric,保持原值,Weekend_Flag
+Night_Transaction_Flag,numeric,保持原值,Night_Transaction_Flag
+Source_Account_Age_Days,numeric,保持原值,Source_Account_Age_Days
+Destination_Account_Age_Days,numeric,保持原值,Destination_Account_Age_Days
+Approval_Threshold_RMB,numeric,保持原值,Approval_Threshold_RMB
+Invoice_Match_Score,numeric,保持原值,Invoice_Match_Score
+Tax_Validation_Flag,numeric,保持原值,Tax_Validation_Flag
+Duplicate_Invoice_Flag,numeric,保持原值,Duplicate_Invoice_Flag
+Same_Bank_Flag,numeric,保持原值,Same_Bank_Flag
+Province_Mismatch_Flag,numeric,保持原值,Province_Mismatch_Flag
+Related_Party_Flag,numeric,保持原值,Related_Party_Flag
+Time_Since_Last_Transaction_Min,numeric,保持原值,Time_Since_Last_Transaction_Min
+Approval_Delay_Min,numeric,保持原值,Approval_Delay_Min
+Vendor_Risk_Score,numeric,保持原值,Vendor_Risk_Score
+Source_Account_Degree,numeric,保持原值,Source_Account_Degree
+Destination_Account_Degree,numeric,保持原值,Destination_Account_Degree
+Source_PageRank,numeric,保持原值,Source_PageRank
+Destination_PageRank,numeric,保持原值,Destination_PageRank
+Common_Counterparty_Count,numeric,保持原值,Common_Counterparty_Count
+Edge_Transaction_Count_30D,numeric,保持原值,Edge_Transaction_Count_30D
+Relation_Strength_Score,numeric,保持原值,Relation_Strength_Score
+Temporal_Burst_Score,numeric,保持原值,Temporal_Burst_Score
+Audit_Rule_Violation_Count,numeric,保持原值,Audit_Rule_Violation_Count
+Relational_Anomaly_Score,numeric,保持原值,Relational_Anomaly_Score
+Source_Bank_Agricultural_Bank_of_China,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_Bank_of_China,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_Bank_of_Communications,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_China_Construction_Bank,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_China_Merchants_Bank,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_ICBC,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_Industrial_Bank,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_Postal_Savings_Bank_of_China,one-hot,One-Hot 编码,Source_Bank
+Source_Bank_Shanghai_Pudong_Development_Bank,one-hot,One-Hot 编码,Source_Bank
+Destination_Bank_Agricultural_Bank_of_China,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_Bank_of_China,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_Bank_of_Communications,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_China_Construction_Bank,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_China_Merchants_Bank,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_ICBC,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_Industrial_Bank,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_Postal_Savings_Bank_of_China,one-hot,One-Hot 编码,Destination_Bank
+Destination_Bank_Shanghai_Pudong_Development_Bank,one-hot,One-Hot 编码,Destination_Bank
+Source_Province_Beijing,one-hot,One-Hot 编码,Source_Province
+Source_Province_Chongqing,one-hot,One-Hot 编码,Source_Province
+Source_Province_Fujian,one-hot,One-Hot 编码,Source_Province
+Source_Province_Guangdong,one-hot,One-Hot 编码,Source_Province
+Source_Province_Henan,one-hot,One-Hot 编码,Source_Province
+Source_Province_Hubei,one-hot,One-Hot 编码,Source_Province
+Source_Province_Jiangsu,one-hot,One-Hot 编码,Source_Province
+Source_Province_Shandong,one-hot,One-Hot 编码,Source_Province
+Source_Province_Shanghai,one-hot,One-Hot 编码,Source_Province
+Source_Province_Sichuan,one-hot,One-Hot 编码,Source_Province
+Source_Province_Tianjin,one-hot,One-Hot 编码,Source_Province
+Source_Province_Zhejiang,one-hot,One-Hot 编码,Source_Province
+Destination_Province_Beijing,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Chongqing,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Fujian,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Guangdong,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Henan,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Hubei,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Jiangsu,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Shandong,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Shanghai,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Sichuan,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Tianjin,one-hot,One-Hot 编码,Destination_Province
+Destination_Province_Zhejiang,one-hot,One-Hot 编码,Destination_Province
+Source_Account_Type_Corporate_Operating_Account,one-hot,One-Hot 编码,Source_Account_Type
+Source_Account_Type_Customer_Receivable_Account,one-hot,One-Hot 编码,Source_Account_Type
+Source_Account_Type_Payroll_Account,one-hot,One-Hot 编码,Source_Account_Type
+Source_Account_Type_Subsidiary_Account,one-hot,One-Hot 编码,Source_Account_Type
+Source_Account_Type_Tax_Settlement_Account,one-hot,One-Hot 编码,Source_Account_Type
+Source_Account_Type_Vendor_Payable_Account,one-hot,One-Hot 编码,Source_Account_Type
+Destination_Account_Type_Corporate_Operating_Account,one-hot,One-Hot 编码,Destination_Account_Type
+Destination_Account_Type_Customer_Receivable_Account,one-hot,One-Hot 编码,Destination_Account_Type
+Destination_Account_Type_Payroll_Account,one-hot,One-Hot 编码,Destination_Account_Type
+Destination_Account_Type_Subsidiary_Account,one-hot,One-Hot 编码,Destination_Account_Type
+Destination_Account_Type_Tax_Settlement_Account,one-hot,One-Hot 编码,Destination_Account_Type
+Destination_Account_Type_Vendor_Payable_Account,one-hot,One-Hot 编码,Destination_Account_Type
+Payment_Channel_Alipay_Business,one-hot,One-Hot 编码,Payment_Channel
+Payment_Channel_Branch_Counter_Transfer,one-hot,One-Hot 编码,Payment_Channel
+Payment_Channel_CNAPS_Bank_Transfer,one-hot,One-Hot 编码,Payment_Channel
+Payment_Channel_Digital_Yuan_Pilot_Payment,one-hot,One-Hot 编码,Payment_Channel
+Payment_Channel_ERP_Payment_Gateway,one-hot,One-Hot 编码,Payment_Channel
+Payment_Channel_UnionPay_Corporate_Payment,one-hot,One-Hot 编码,Payment_Channel
+Payment_Channel_WeChat_Pay_Business,one-hot,One-Hot 编码,Payment_Channel
+Invoice_Type_Customs_Invoice,one-hot,One-Hot 编码,Invoice_Type
+Invoice_Type_Electronic_Invoice,one-hot,One-Hot 编码,Invoice_Type
+Invoice_Type_No_Invoice,one-hot,One-Hot 编码,Invoice_Type
+Invoice_Type_Service_Invoice,one-hot,One-Hot 编码,Invoice_Type
+Invoice_Type_VAT_General_Invoice,one-hot,One-Hot 编码,Invoice_Type
+Invoice_Type_VAT_Special_Invoice,one-hot,One-Hot 编码,Invoice_Type
+Edge_Type_Asset_Purchase,one-hot,One-Hot 编码,Edge_Type
+Edge_Type_Customer_Receipt,one-hot,One-Hot 编码,Edge_Type
+Edge_Type_Intercompany_Transfer,one-hot,One-Hot 编码,Edge_Type
+Edge_Type_Payroll_Disbursement,one-hot,One-Hot 编码,Edge_Type
+Edge_Type_Refund_Transaction,one-hot,One-Hot 编码,Edge_Type
+Edge_Type_Service_Settlement,one-hot,One-Hot 编码,Edge_Type
+Edge_Type_Supplier_Payment,one-hot,One-Hot 编码,Edge_Type
+Edge_Type_Tax_Payment,one-hot,One-Hot 编码,Edge_Type
+Approval_Level_Audit_Required,one-hot,One-Hot 编码,Approval_Level
+Approval_Level_Auto_Approved,one-hot,One-Hot 编码,Approval_Level
+Approval_Level_Finance_Approved,one-hot,One-Hot 编码,Approval_Level
+Approval_Level_Manager_Approved,one-hot,One-Hot 编码,Approval_Level
+Transaction_Amount_RMB_log_z,amount,log1p + z-score,Transaction_Amount_RMB
+Historical_Avg_Amount_RMB_log_z,amount,log1p + z-score,Historical_Avg_Amount_RMB
+Transaction_to_Avg_Ratio_log_z,amount,log1p + z-score,Transaction_to_Avg_Ratio
+Amount_Threshold_Ratio_log_z,amount,log1p + z-score,Amount_Threshold_Ratio

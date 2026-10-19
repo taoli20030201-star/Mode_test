@@ -1,0 +1,14 @@
+﻿字段名,删除原因
+Currency,常量列：只有 CNY 一个取值，零信息
+Risk_Class,标签派生列：与 Abnormal_Label 完全对应，特征泄漏
+Source_Node_ID,"高基数网络节点标识（1,490 个取值），不可泛化"
+Destination_Node_ID,"高基数网络节点标识（1,484 个取值），不可泛化"
+Source_Node_Index,节点索引编号，不是业务特征
+Destination_Node_Index,节点索引编号，不是业务特征
+Source_Entity_ID,实体标识（586 个取值），不可泛化
+Destination_Entity_ID,实体标识（586 个取值），不可泛化
+Source_Entity_Name,实体名称标识（132 个取值），与实体 ID 重复
+Destination_Entity_Name,实体名称标识（132 个取值），与实体 ID 重复
+Invoice_ID,"高基数标识（6,695 个取值）；重复发票信号已由 Duplicate_Invoice_Flag 表示"
+Source_City,高基数类别（25 个取值），与省份信息重叠，暂不纳入
+Destination_City,高基数类别（25 个取值），与省份信息重叠，暂不纳入

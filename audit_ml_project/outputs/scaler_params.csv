@@ -1,0 +1,5 @@
+﻿源字段,新字段,mean(log1p),std(log1p)
+Transaction_Amount_RMB,Transaction_Amount_RMB_log_z,10.09595,1.073424
+Historical_Avg_Amount_RMB,Historical_Avg_Amount_RMB_log_z,9.990106,0.75457
+Transaction_to_Avg_Ratio,Transaction_to_Avg_Ratio_log_z,0.812646,0.529145
+Amount_Threshold_Ratio,Amount_Threshold_Ratio_log_z,0.315356,0.374022

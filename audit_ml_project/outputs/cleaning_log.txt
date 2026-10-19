@@ -1,0 +1,60 @@
+智慧审计数据集 · 清洗日志
+生成时间: 2026-10-18 23:00:32
+输入文件: D:\ProjectFiles\VscodeProject\audit_ml_project\data\audit_raw.csv
+输出文件: D:\ProjectFiles\VscodeProject\audit_ml_project\outputs\audit_clean.csv
+
+行数: 7000 -> 7000（删除 0 行）
+列数: 59 -> 115
+特征列: 111 | 非特征列(标识/标签): 4
+
+2.1 缺失值:
+  全部 59 列缺失率为 0，未执行填充；处置规则保留在代码中以便复用。
+
+2.2 删除列（13 列）:
+  - Currency: 常量列：只有 CNY 一个取值，零信息
+  - Risk_Class: 标签派生列：与 Abnormal_Label 完全对应，特征泄漏
+  - Source_Node_ID: 高基数网络节点标识（1,490 个取值），不可泛化
+  - Destination_Node_ID: 高基数网络节点标识（1,484 个取值），不可泛化
+  - Source_Node_Index: 节点索引编号，不是业务特征
+  - Destination_Node_Index: 节点索引编号，不是业务特征
+  - Source_Entity_ID: 实体标识（586 个取值），不可泛化
+  - Destination_Entity_ID: 实体标识（586 个取值），不可泛化
+  - Source_Entity_Name: 实体名称标识（132 个取值），与实体 ID 重复
+  - Destination_Entity_Name: 实体名称标识（132 个取值），与实体 ID 重复
+  - Invoice_ID: 高基数标识（6,695 个取值）；重复发票信号已由 Duplicate_Invoice_Flag 表示
+  - Source_City: 高基数类别（25 个取值），与省份信息重叠，暂不纳入
+  - Destination_City: 高基数类别（25 个取值），与省份信息重叠，暂不纳入
+
+2.2 One-Hot: 10 个源字段 -> 79 个哑变量
+  - Source_Bank: 9 类 -> 9 列
+  - Destination_Bank: 9 类 -> 9 列
+  - Source_Province: 12 类 -> 12 列
+  - Destination_Province: 12 类 -> 12 列
+  - Source_Account_Type: 6 类 -> 6 列
+  - Destination_Account_Type: 6 类 -> 6 列
+  - Payment_Channel: 7 类 -> 7 列
+  - Invoice_Type: 6 类 -> 6 列
+  - Edge_Type: 8 类 -> 8 列
+  - Approval_Level: 4 类 -> 4 列
+
+2.3 金额变换（log1p + z-score）:
+  - Transaction_Amount_RMB -> Transaction_Amount_RMB_log_z: mean(log1p)=10.09595, std(log1p)=1.073424
+  - Historical_Avg_Amount_RMB -> Historical_Avg_Amount_RMB_log_z: mean(log1p)=9.990106, std(log1p)=0.75457
+  - Transaction_to_Avg_Ratio -> Transaction_to_Avg_Ratio_log_z: mean(log1p)=0.812646, std(log1p)=0.529145
+  - Amount_Threshold_Ratio -> Amount_Threshold_Ratio_log_z: mean(log1p)=0.315356, std(log1p)=0.374022
+
+2.4 质量检查:
+  - 行数保持 7,000: 通过（7,000 行）
+  - 交易 ID 唯一: 通过（重复 0 条）
+  - 交易 ID 与原始顺序一致: 通过（逐行比对）
+  - 标签分布不变: 通过（异常 955 条）
+  - 无缺失值: 通过（缺失 0 个）
+  - 无 NaN / Inf: 通过（np.isfinite 全量检查）
+  - 特征全部为数值型: 通过（111 列）
+  - 特征列名无重复: 通过（111 个唯一列名）
+  - 原始金额全部 > 0: 通过（最小值 890.63）
+
+说明:
+  - 未删除任何异常值（异常样本是检测目标）。
+  - 未使用标签信息参与特征构造或标准化；标签仅用于后续评估。
+  - 城市字段暂不纳入（25 类，与省份重叠）；省份 12 类予以 One-Hot（有意识的放宽）。

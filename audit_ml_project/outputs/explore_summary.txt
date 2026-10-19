@@ -1,0 +1,27 @@
+智慧审计数据集 · 初步探查小结
+生成时间: 2026-10-18 22:47:19
+数据文件: D:\ProjectFiles\VscodeProject\audit_ml_project\data\audit_raw.csv
+
+规模: 7000 行 x 59 列
+缺失单元格: 0
+常量列: Currency
+
+标签:
+  正常 (0): 6045 条
+  异常 (1): 955 条 (13.64%)
+  正负比: 6.33 : 1
+  异常类型数: 8
+
+金额:
+  中位数 23,063 | 均值 50,124 | 最大 3,181,864
+  最大/中位数 = 138.0 倍
+  偏度 原始 10.70 -> log1p 后 0.52
+
+质量预检: 全部通过（重复 ID 0 / 重复行 0 / 非正金额 0 / 无法解析时间 0）
+
+泄漏字段: Abnormal_Type, Risk_Class（均为标签派生，建模剔除）
+派生字段: Transaction_to_Avg_Ratio, Amount_Threshold_Ratio
+
+关键图表:
+  outputs/figures/01_label_distribution.png
+  outputs/figures/02_amount_skew.png

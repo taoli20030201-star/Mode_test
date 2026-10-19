@@ -1,0 +1,24 @@
+﻿字段名,唯一值数,示例值,编码建议
+Transaction_ID,7000,CN-TXN-0000001,ID/时间类：不作为类别特征编码
+Transaction_DateTime,7000,2024-08-20 23:32:58,ID/时间类：不作为类别特征编码
+Invoice_ID,6695,CN-VAT-0000001,ID/时间类：不作为类别特征编码
+Source_Node_ID,1490,CN-ACC-001308,ID/时间类：不作为类别特征编码
+Destination_Node_ID,1484,CN-ACC-000682,ID/时间类：不作为类别特征编码
+Source_Entity_ID,586,CN-ENT-00276,ID/时间类：不作为类别特征编码
+Destination_Entity_ID,586,CN-ENT-00272,ID/时间类：不作为类别特征编码
+Source_Entity_Name,132,Dahua Logistics Co Ltd,ID/时间类：不作为类别特征编码
+Destination_Entity_Name,132,Guanghua Manufacturing Group,ID/时间类：不作为类别特征编码
+Destination_City,25,Chongqing,中基数：One-Hot 或合并低频
+Source_City,25,Chongqing,中基数：One-Hot 或合并低频
+Destination_Province,12,Chongqing,中基数：One-Hot 或合并低频
+Source_Province,12,Chongqing,中基数：One-Hot 或合并低频
+Destination_Bank,9,Shanghai Pudong Development Bank,低基数：可直接 One-Hot
+Source_Bank,9,Postal Savings Bank of China,低基数：可直接 One-Hot
+Abnormal_Type,9,Normal,低基数：可直接 One-Hot
+Edge_Type,8,Service Settlement,低基数：可直接 One-Hot
+Payment_Channel,7,UnionPay Corporate Payment,低基数：可直接 One-Hot
+Source_Account_Type,6,Subsidiary Account,低基数：可直接 One-Hot
+Destination_Account_Type,6,Vendor Payable Account,低基数：可直接 One-Hot
+Invoice_Type,6,Service Invoice,低基数：可直接 One-Hot
+Approval_Level,4,Audit Required,低基数：可直接 One-Hot
+Currency,1,CNY,常量列：剔除

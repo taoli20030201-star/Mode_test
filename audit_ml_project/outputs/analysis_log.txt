@@ -1,0 +1,50 @@
+智慧审计数据集 · 分析日志
+生成时间: 2026-10-18 23:09:25
+输入特征: D:\ProjectFiles\VscodeProject\audit_ml_project\outputs\clean_feature_columns.csv（111 列）
+样本数: 7000 | 异常样本: 955 (13.64%)
+
+3.1 Benford:
+  总体 MAD = 0.00405（高度符合）
+  正常组 MAD = 0.00325（高度符合），n=6045
+  异常组 MAD = 0.03633（明显不符合），n=955
+  可疑数字 5: 偏差 +0.0154
+  Benford 标记数: 662
+
+3.2 Isolation Forest:
+  n_estimators=200, contamination=0.02, random_state=42
+  标记数: 140
+  ROC-AUC = 0.8795
+  PR-AUC  = 0.6466
+
+3.3 Top-K:
+  K=50: 命中 49, precision=0.9800, recall=0.0513, lift=7.18
+  K=100: 命中 96, precision=0.9600, recall=0.1005, lift=7.04
+  K=140: 命中 129, precision=0.9214, recall=0.1351, lift=6.75
+  K=300: 命中 259, precision=0.8633, recall=0.2712, lift=6.33
+  K=500: 命中 380, precision=0.7600, recall=0.3979, lift=5.57
+  K=1000: 命中 578, precision=0.5780, recall=0.6052, lift=4.24
+
+3.3 Top-140 类型构成（事后统计）:
+  Round_Trip_Transfer: 42/107（入选率 39.3%）
+  Duplicate_Invoice: 28/109（入选率 25.7%）
+  Unusual_Amount_Spike: 17/175（入选率 9.7%）
+  Split_Transaction: 15/142（入选率 10.6%）
+  Normal: 11/6045（入选率 0.2%）
+  High_Risk_Vendor: 11/141（入选率 7.8%）
+  Tax_ID_Mismatch: 11/74（入选率 14.9%）
+  Temporal_Burst: 5/92（入选率 5.4%）
+  Cross_Province_Mismatch: 0/115（入选率 0.0%）
+
+3.4 规则-模型交叉:
+  重叠 18 条, 并集 784 条, Jaccard=0.0230
+  Benford=0, model_top140=0: 记录 6216, 异常 657, 异常率 0.1057
+  Benford=0, model_top140=1: 记录 122, 异常 112, 异常率 0.9180
+  Benford=1, model_top140=0: 记录 644, 异常 169, 异常率 0.2624
+  Benford=1, model_top140=1: 记录 18, 异常 17, 异常率 0.9444
+
+3.5 人工归因:
+  CN-TXN-0005220 [Duplicate_Invoice]: 审批延迟 339 分钟（全样本均值约 72 分钟）；发票匹配分仅 0.44（全样本均值约 0.90）；触发 4 条审计规则；关系异常分 0.49（全样本均值约 0.27）
+  CN-TXN-0000248 [High_Risk_Vendor]: 供应商风险分 0.86（全样本均值约 0.30）；触发 4 条审计规则；关系异常分 0.52（全样本均值约 0.27）
+  CN-TXN-0000398 [Split_Transaction]: 金额是历史均值的 56.9 倍；金额达到审批阈值的 97.4%，紧贴阈值
+
+说明: 标签仅用于评估，未参与训练或规则定义。
