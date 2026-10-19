@@ -105,7 +105,7 @@ def add_title(slide, title, subtitle=None):
     add_box(slide, 40, 30, 6, 34, fill=ACCENT, radius=False)
     add_text(slide, title, 56, 24, 860, 42, size=23, color=DARK, bold=True)
     if subtitle:
-        add_text(slide, subtitle, 56, 72, 860, 40, size=10.5, color=GRAY, spacing=1.05)
+        add_text(slide, subtitle, 56, 72, 860, 46, size=12.5, color=GRAY, spacing=1.1)
 
 
 def add_footer(slide, idx):
@@ -252,9 +252,9 @@ try:
     s = new_slide()
     add_title(s, '为何选审计：三个条件刚好都满足')
     add_text(s, '审计现场：人力有限、异常稀少、规则只看单字段 → 需要无监督 + 可解释的 Top-K 筛查。',
-             56, 70, 860, 18, 10.5, TEXT, bold=True)
+             56, 68, 860, 22, 12.5, TEXT, bold=True)
     add_text(s, '不是“为了用机器学习而用”，而是这个场景同时具备可验证、可解释、可落地的条件。',
-             56, 90, 860, 18, 10, GRAY)
+             56, 92, 860, 22, 12, GRAY)
     cards = [
         ('01', '有答案可验证', PRIMARY,
          ['955 条异常标签，占 13.64%',
@@ -314,9 +314,9 @@ try:
     s = new_slide()
     add_title(s, '清洗（二）：金额长尾不处理，异常分数会被极端值带偏')
     add_text(s, '先 log1p 压缩量级，再 z-score 标准化；4 个金额/比率字段统一处理。',
-             56, 68, 860, 18, 10, GRAY)
+             56, 66, 860, 22, 12, GRAY)
     add_text(s, '关键发现：131 笔金额恰好 500,000 元，全部为金额突增异常——log1p 后形成 13.1 处尖峰。',
-             56, 86, 860, 18, 10, ACCENT, bold=True)
+             56, 90, 860, 22, 12, ACCENT, bold=True)
     add_stat_strip(s, '偏度 10.70 → 0.52  ·  4 个字段  ·  9 项质量检查通过  ·  7,000 行不变')
     add_picture_fit(s, FIG / 'fig3_amount_transform.png', 40, 150, 880, 360)
     add_footer(s, 6)
