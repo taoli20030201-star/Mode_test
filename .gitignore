@@ -14,3 +14,6 @@ c_Test/
 *.log
 *.tmp
 .DS_Store
+
+# Personal documents (do not upload)
+信工支部李涛.docx
